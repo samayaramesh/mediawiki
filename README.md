@@ -51,19 +51,31 @@ aws_access_key: ***********************
 aws_secret_key: ***********************************
 
 keyed_groups:
-  - key: tags
-    prefix: tag
-  - prefix: instance_type
-    key: instance_type
-  - key: placement.region
-    prefix: aws_region
+ 
+ - key: tags
+ 
+   prefix: tag
+ 
+ - prefix: instance_type
+ 
+   key: instance_type
+  
+ - key: placement.region
+  
+   prefix: aws_region
 
 groups:
+  
   web:
+  
     tags:
+    
       kind: web
+  
   db:
+  
     tags:
+    
       kind: db
       
 ---
@@ -72,12 +84,15 @@ groups:
    inventory      = /opt/ansible/inventory/aws_ec2.yaml
    
    [Inventory]
+   
    enable_plugins = aws_ec2
    
    5. Use the plugin while running the ansible playbook as shown below
    
    [centos@ip-172-31-10-226 inventory]$ ansible-inventory --graph
+   
 @all:
+
   |--@aws_ec2:
   |  |--ec2-15-207-254-128.ap-south-1.compute.amazonaws.com
   |  |--ec2-52-66-124-223.ap-south-1.compute.amazonaws.com
