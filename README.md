@@ -1,4 +1,3 @@
-# mediawiki
 Mediawiki Installation on AWS using Terraform & Ansible
 ------------------------------------------------------- 
 
