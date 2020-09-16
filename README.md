@@ -41,7 +41,7 @@ Pre-Requisites:
    
    3. Add below lines for dynamic inventory to the file (example)
    
-   ---
+```   ---
 plugin: aws_ec2
 
 regions: ap-south-1
@@ -77,18 +77,18 @@ groups:
     tags:
     
       kind: db
-      
+```
 ---
    4. Update the inventory path and enable the plugin /etc/ansible.ansible.cfg
-   
+```   
    inventory      = /opt/ansible/inventory/aws_ec2.yaml
    
    [Inventory]
    
    enable_plugins = aws_ec2
-   
+```   
    5. Use the plugin while running the ansible playbook as shown below
-   
+```   
    [centos@ip-172-31-10-226 inventory]$ ansible-inventory --graph
    
 @all:
@@ -112,17 +112,18 @@ groups:
   |--@tag_Name_Rakesh_Test1:
   |  |--ec2-52-66-124-223.ap-south-1.compute.amazonaws.com
   |--@ungrouped:
-
+```
 ----------
    6. Update hosts entry (based on the region) inside ansible yaml file as below
    ---
 #This playbook deploys the mediawiki 
+```
 - name: Media Wiki Database and WebServer
   hosts: aws_region_ap_south_1    /// Here the grouping is based on the region
   become: yes 
-   
+``` 
    7. Run ansible playbook inside terraform as below 
-   
+```  
    provisioner "local-exec" {
     command = ansible-playbook site.yml -u ${var.ansible_user} --private-key ${var.private_key} -i tag_Name_web
   }
@@ -134,7 +135,7 @@ groups:
   }
 }
 ---------
-
+```
    
 AWS Resources
 --------------
