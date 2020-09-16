@@ -124,7 +124,15 @@ groups:
 ``` 
    7. Run ansible playbook inside terraform as below 
 ```  
-   provisioner "local-exec" {
+  provisioner "remote-exec" {
+    inline = ["sudo yum install python -y"]
+	connection {
+		type        = ssh
+		private_key = file(var.private_key)
+		user        = var.ansible_user
+  }
+}
+  provisioner "local-exec" {
     command = ansible-playbook site.yml -u ${var.ansible_user} --private-key ${var.private_key} -i tag_Name_web
   }
   provisioner "local-exec" {
