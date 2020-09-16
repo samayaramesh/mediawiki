@@ -43,9 +43,13 @@ Pre-Requisites:
    
    ---
 plugin: aws_ec2
+
 regions: ap-south-1
+
 aws_access_key: ***********************
+
 aws_secret_key: ***********************************
+
 keyed_groups:
   - key: tags
     prefix: tag
@@ -53,6 +57,7 @@ keyed_groups:
     key: instance_type
   - key: placement.region
     prefix: aws_region
+
 groups:
   web:
     tags:
