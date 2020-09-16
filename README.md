@@ -1,7 +1,7 @@
 Mediawiki Installation on AWS using Terraform & Ansible
 ------------------------------------------------------- 
 
-Assumptions/Pre-Requisites: 
+Pre-Requisites: 
 ---------------------------
 1. Terraform is installed and the PATH is set. 
 	
