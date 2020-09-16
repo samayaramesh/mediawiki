@@ -15,6 +15,7 @@ Pre-Requisites:
 2. AWS Secret variables are set: 
 	
 	AWS_ACCESS_KEY_ID='****'
+	
 	AWS_SECRET_ACCESS_KEY='***'
 	
 3. Python 2.7+ and Ansible 2.x is installed
