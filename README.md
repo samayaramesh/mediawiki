@@ -25,6 +25,7 @@ Pre-Requisites:
    sudo yum install ansible
    
    Step 2 — Configuring Ansible Hosts
+   
    Below are the reference to configure Dynamic Inventory in Ansible for AWS (/etc/ansible/hosts will not be used in AWS since the instances are dynamic)
    
    https://devopscube.com/setup-ansible-aws-dynamic-inventory/#:~:text=Dynamic%20inventory%20is%20an%20ansible,was%20just%20a%20Python%20file.
