@@ -13,18 +13,18 @@ Pre-Requisites:
 	4. check using "terraform --version" command
 	
 2. AWS Secret variables are set: 
-	
+	```
 	AWS_ACCESS_KEY_ID='****'
 	
 	AWS_SECRET_ACCESS_KEY='***'
-	
+	```
 3. Python 2.7+ and Ansible 2.x is installed
 	
    Step 1 — Installing Ansible
-   
+   ```
    sudo yum install epel-release
    sudo yum install ansible
-   
+   ```
    Step 2 — Configuring Ansible Hosts
    
    Below are the reference to configure Dynamic Inventory in Ansible for AWS (/etc/ansible/hosts will not be used in AWS since the instances are dynamic)
