@@ -1,9 +1,9 @@
 variable "access_key" {
-    default = "AKIA5RVKB3P2PE2545WV"
+    default = "*****************"
 }
 
 variable "secret_key" {
-    default = "oO5M8QIqY6PBFwBB3OfVpettQPUS3j0+BqAzvHB/"
+    default = "****************************"
 }
 
 variable "aws_cidr_vpc" {
