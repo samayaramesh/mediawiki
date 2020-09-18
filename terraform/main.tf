@@ -76,6 +76,7 @@ resource "aws_security_group" "mw_sg" {
 
 # Launch the instance
 resource "aws_instance" "webserver1" {
+  depends_on = [aws_security_group.mw_sg]
   ami           = var.aws_ami
   instance_type = var.aws_instance_type
   key_name  = var.key_name
@@ -89,7 +90,7 @@ resource "aws_instance" "webserver1" {
 }
 
 resource "aws_instance" "webserver2" {
-  #depends_on = [aws_security_group.mw_sg]
+  depends_on = [aws_security_group.mw_sg]
   ami           = var.aws_ami
   instance_type = var.aws_instance_type
   key_name  = var.key_name
@@ -103,7 +104,7 @@ resource "aws_instance" "webserver2" {
 }
 
 resource "aws_instance" "dbserver" {
-  #depends_on = [aws_security_group.mw_sg]
+  depends_on = [aws_security_group.mw_sg]
   ami           = var.aws_ami
   instance_type = var.aws_instance_type
   key_name  = var.key_name
