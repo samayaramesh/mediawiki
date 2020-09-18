@@ -3,7 +3,7 @@ output "instance_ids" {
 }
 
 output "pem" {
-        value = ["${tls_private_key.mw_key.private_key_pem}"]
+        value = ["${tls_private_key.key_name.private_key_pem}"]
 }
 
 output "elb_dns_name" {
