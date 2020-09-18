@@ -1,10 +1,6 @@
-variable "access_key" {
-    default = "*****************"
-}
+variable "aws_access_key" {}
 
-variable "secret_key" {
-    default = "****************************"
-}
+variable "aws_secret_key" {}
 
 variable "aws_cidr_vpc" {
   default = "10.0.0.0/16"
