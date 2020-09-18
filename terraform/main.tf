@@ -74,16 +74,6 @@ resource "aws_security_group" "mw_sg" {
   }
 }
 
-resource "tls_private_key" "automation_apac" {
-  algorithm = "RSA"
-  rsa_bits  = 2048
-}
-
-resource "aws_key_pair" "automation_apac" {
-  key_name   = var.key_name
-  public_key = tls_private_key.automation_apac.public_key_openssh
-}
-
 # Launch the instance
 resource "aws_instance" "webserver1" {
   ami           = var.aws_ami
@@ -102,7 +92,7 @@ resource "aws_instance" "webserver2" {
   #depends_on = [aws_security_group.mw_sg]
   ami           = var.aws_ami
   instance_type = var.aws_instance_type
-  key_name  = aws_key_pair.generated_key.key_name
+  key_name  = var.key_name
   vpc_security_group_ids = [aws_security_group.mw_sg.id]
   subnet_id     = aws_subnet.mw_subnet2.id 
   associate_public_ip_address = true
@@ -116,7 +106,7 @@ resource "aws_instance" "dbserver" {
   #depends_on = [aws_security_group.mw_sg]
   ami           = var.aws_ami
   instance_type = var.aws_instance_type
-  key_name  = aws_key_pair.generated_key.key_name
+  key_name  = var.key_name
   vpc_security_group_ids = [aws_security_group.mw_sg.id]
   subnet_id     = aws_subnet.mw_subnet2.id
 
