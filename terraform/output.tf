@@ -31,4 +31,4 @@ output "instance_ids" {
 
 output "elb_dns_name" {
   value = "${aws_elb.mw_elb.dns_name}"
-}
+ }
