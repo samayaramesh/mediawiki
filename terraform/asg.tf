@@ -24,5 +24,5 @@ resource "aws_autoscaling_group" "mw_asg" {
     key = "Name"
     value = "mw_asg"
     propagate_at_launch = true
-  }
+    }
 }
