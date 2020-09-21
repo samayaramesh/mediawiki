@@ -6,25 +6,21 @@ resource "aws_launch_configuration" "mw_lc" {
   instance_type          = var.aws_instance_type
   security_groups        = [aws_security_group.mw_sg_ec2.id]
   depends_on = [aws_security_group.mw_sg_ec2]
-  subnet_id = element(aws_subnet.mw_app_subnet.*.id, count.index)
   associate_public_ip_address = true
-  tags = {
-    Name = element(var.aws_webserver, count.index)
-  }
   provisioner "remote-exec" {
      inline = ["sudo yum install python -y"]
         connection {
                 type        = "ssh"
                 private_key = file(var.private_key)
                 user        = var.ansible_user
-                host        = self.public_ip
+                host        = "self.public_ip"
   }
  }
    provisioner "local-exec" {
     command = "ansible-playbook site.yml -u var.ansible_user --private-key var.private_key -i tag_Name_web"
   }
-}
-  
+
+
   lifecycle {
     create_before_destroy = true
   }
@@ -43,5 +39,5 @@ resource "aws_autoscaling_group" "mw_asg" {
     key = "Name"
     value = "mw_asg"
     propagate_at_launch = true
-    }
+  }
 }
