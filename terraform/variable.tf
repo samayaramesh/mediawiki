@@ -6,24 +6,16 @@ variable "aws_cidr_vpc" {
   default = "10.0.0.0/16"
 }
 
-variable "aws_cidr_subnet1" {
-  default = "10.0.1.0/24"
+variable "aws_sg_ec2" {
+  default = "sg-ec2-mediawiki"
 }
 
-variable "aws_cidr_subnet2" {
-  default = "10.0.2.0/24"
-}
-
-variable "aws_cidr_subnet3" {
-  default = "10.0.3.0/24"
-}
-
-variable "aws_sg" {
-  default = "sg_mediawiki"
+variable "aws_sg_elb" {
+  default = "sg-elb-mediawiki"
 }
 
 variable "instance_count" {
-    default = 1
+    default = 2
 }
 
 variable "aws_instance_type" {
@@ -41,11 +33,11 @@ variable "region" {
 }
 
 variable "private_key" {
-  default = "/home/centos/application/Keys/automation-apac.pem"
+  default = "/home/centos/automation_apac.pem"
 }
 
-variable "public_key {
-  default = "/home/centos/application/Keys/automation-apac.pub"
+variable "public_key" {
+  default = "/home/centos/automation_apac.pub"
 }
 
 variable "key_name" {
@@ -53,20 +45,18 @@ variable "key_name" {
 }
 
 variable "aws_ami" {
-  default = {
-  ap-south-1 = "ami-01ddffd4157cae748"
-  }
+  default = "ami-01ddffd4157cae748"
 }
 
 variable "ansible_user" {
   default = "centos"
 }
 
-variable "aws_tags" {
-  type = map
-  default = {
-    "webserver1" = "MediaWiki-Web-1"
-	"webserver2" = "MediaWiki-Web-2"
-    "dbserver" = "MediaWikiDB" 
-  }
+variable "aws_webserver" {
+  type = list
+  default = ["MediaWiki-Web-1", "MediaWiki-Web-2"]
+}
+
+variable "aws_dbserver" {
+  default = "MediaWiki-db"
 }
