@@ -130,13 +130,11 @@ groups:
 		type        = ssh
 		private_key = file(var.private_key)
 		user        = var.ansible_user
+		host        = self.public_ip
   }
 }
   provisioner "local-exec" {
     command = ansible-playbook site.yml -u ${var.ansible_user} --private-key ${var.private_key} -i tag_Name_web
-  }
-  provisioner "local-exec" {
-    command = ansible-playbook site.yml -u ${var.ansible_user} --private-key ${var.private_key} -i tag_Name_db  
   }
   lifecycle {
     create_before_destroy = true
@@ -149,7 +147,8 @@ AWS Resources
 --------------
  - Terraform that does the following:
  	- 1 VPC
- 	- 3 Subnets  
+ 	- 1 Public subnet
+	- 2 Private subnet
  	- 1 Keypair 
  	- 3 EC2 Instances - 2 Web and 1 DB
  	- 1 Elastic Load Balancer
