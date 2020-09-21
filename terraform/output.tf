@@ -25,10 +25,6 @@ output "database_cidrs" {
   value = aws_subnet.mw_db_subnet.*.cidr_block
 }
 
-output "instance_ids" {
-    value = [aws_instance.webserver.*.public_ip]
-}
-
 output "elb_dns_name" {
   value = "${aws_elb.mw_elb.dns_name}"
  }
