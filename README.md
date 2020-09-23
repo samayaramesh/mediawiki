@@ -109,9 +109,7 @@ groups:
   |  |--ec2-52-66-124-223.ap-south-1.compute.amazonaws.com
   |--@tag_Name_Automation_apac:
   |  |--ec2-15-207-254-128.ap-south-1.compute.amazonaws.com
-  |--@tag_Name_Rakesh_Test1:
-  |  |--ec2-52-66-124-223.ap-south-1.compute.amazonaws.com
-  |--@ungrouped:
+
 ```
 ----------
    6. Update hosts entry (based on the region) inside ansible yaml file as below
